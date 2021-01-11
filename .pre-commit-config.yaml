@@ -4,14 +4,15 @@ repos:
 - repo: https://github.com/pre-commit/pre-commit-hooks
   rev: v3.2.0
   hooks:
-  - id: check-yaml
-  - id: check-json
-  - id: end-of-file-fixer
   - id: check-added-large-files
+  - id: check-json
+  - id: check-merge-conflict
+  - id: check-yaml
+  - id: end-of-file-fixer
   - id: mixed-line-ending
   - id: trailing-whitespace
 - repo: https://github.com/jumanjihouse/pre-commit-hooks
-  rev: master  # or specific git tag
+  rev: master
   hooks:
 #  - id: markdownlint # Configure in .mdlrc - Check markdown files and flag style issues
   - id: shellcheck   # Shell scripts conform to shellcheck
@@ -28,3 +29,10 @@ repos:
     - id: detect-secrets
       args: ['--baseline', '.secrets.baseline']
       exclude: package.lock.json
+- repo: local
+  hooks:
+  - id: nyc-test
+    name: nyc unit tests
+    entry: yarn test
+    language: script
+    types_or: [javascript, jsx, ts, tsx]
