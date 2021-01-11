@@ -20,7 +20,7 @@ $ npm install -g cyclic-cli
 $ cyclic COMMAND
 running command...
 $ cyclic (-v|--version|version)
-cyclic-cli/0.0.0 darwin-x64 node-v15.5.1
+cyclic-cli/0.0.1 darwin-x64 node-v15.5.1
 $ cyclic --help [COMMAND]
 USAGE
   $ cyclic COMMAND
@@ -29,28 +29,8 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`cyclic hello [FILE]`](#cyclic-hello-file)
 * [`cyclic help [COMMAND]`](#cyclic-help-command)
-
-## `cyclic hello [FILE]`
-
-describe the command here
-
-```
-USAGE
-  $ cyclic hello [FILE]
-
-OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
-
-EXAMPLE
-  $ cyclic hello
-  hello world from ./src/hello.ts!
-```
-
-_See code: [src/commands/hello.ts](https://github.com/cyclic-software/cli/blob/v0.0.0/src/commands/hello.ts)_
+* [`cyclic init-app [FILE]`](#cyclic-init-app-file)
 
 ## `cyclic help [COMMAND]`
 
@@ -68,4 +48,24 @@ OPTIONS
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.1/src/commands/help.ts)_
+
+## `cyclic init-app [FILE]`
+
+describe the command here
+
+```
+USAGE
+  $ cyclic init-app [FILE]
+
+OPTIONS
+  -f, --force
+  -h, --help       show CLI help
+  -n, --name=name  name to print
+
+EXAMPLE
+  $ cyclic init-app
+  hello world from ./src/init-app.ts!
+```
+
+_See code: [src/commands/init-app.ts](https://github.com/cyclic-software/cli/blob/v0.0.1/src/commands/init-app.ts)_
 <!-- commandsstop -->
