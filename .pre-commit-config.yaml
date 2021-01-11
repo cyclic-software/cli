@@ -34,5 +34,5 @@ repos:
   - id: nyc-test
     name: nyc unit tests
     entry: yarn test
-    language: script
+    language: python # running as script makes pre-commit think file is local
     types_or: [javascript, jsx, ts, tsx]
