@@ -21,7 +21,7 @@ $ npm install -g cyclic-cli
 $ cyclic COMMAND
 running command...
 $ cyclic (-v|--version|version)
-cyclic-cli/0.0.1 darwin-x64 node-v15.5.1
+cyclic-cli/0.0.2 darwin-x64 node-v15.5.1
 $ cyclic --help [COMMAND]
 USAGE
   $ cyclic COMMAND
@@ -68,5 +68,5 @@ EXAMPLE
   hello world from ./src/init-app.ts!
 ```
 
-_See code: [src/commands/init-app.ts](https://github.com/cyclic-software/cli/blob/v0.0.1/src/commands/init-app.ts)_
+_See code: [src/commands/init-app.ts](https://github.com/cyclic-software/cli/blob/v0.0.2/src/commands/init-app.ts)_
 <!-- commandsstop -->
