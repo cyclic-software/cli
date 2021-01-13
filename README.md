@@ -21,7 +21,7 @@ $ npm install -g cyclic-cli
 $ cyclic COMMAND
 running command...
 $ cyclic (-v|--version|version)
-cyclic-cli/0.0.2 darwin-x64 node-v15.5.1
+cyclic-cli/0.0.3 darwin-x64 node-v15.5.1
 $ cyclic --help [COMMAND]
 USAGE
   $ cyclic COMMAND
@@ -31,7 +31,7 @@ USAGE
 # Commands
 <!-- commands -->
 * [`cyclic help [COMMAND]`](#cyclic-help-command)
-* [`cyclic init-app [FILE]`](#cyclic-init-app-file)
+* [`cyclic init-app`](#cyclic-init-app)
 
 ## `cyclic help [COMMAND]`
 
@@ -50,23 +50,26 @@ OPTIONS
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.1/src/commands/help.ts)_
 
-## `cyclic init-app [FILE]`
+## `cyclic init-app`
 
-describe the command here
+Will initialize the an application in the AWS account you are credentialed against.
 
 ```
 USAGE
-  $ cyclic init-app [FILE]
+  $ cyclic init-app
 
 OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
+  -h, --help             show CLI help
+  -n, --name=name        application name (defaults to random string)
+  -p, --profile=profile  aws credential profile (defaults to default)
 
 EXAMPLE
-  $ cyclic init-app
-  hello world from ./src/init-app.ts!
+  $ cyclic init-app --name $NAME --profile $PROFILE
+  * Checking AWS account for bootstrapping
+  * Checking AWS account for required roles
+  * Creating Cyclic App: $NAME
+  * Provisioning AWS pipeline resources
 ```
 
-_See code: [src/commands/init-app.ts](https://github.com/cyclic-software/cli/blob/v0.0.2/src/commands/init-app.ts)_
+_See code: [src/commands/init-app.ts](https://github.com/cyclic-software/cli/blob/v0.0.3/src/commands/init-app.ts)_
 <!-- commandsstop -->
