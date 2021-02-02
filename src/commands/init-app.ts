@@ -44,6 +44,8 @@ export default class InitApp extends Command {
 
     // let stack:Stack|string
 
+    let stack: Stack | '' = ''
+
     logger('* Checking AWS account for bootstrapping')
     try {
       const data = await cfn.send(new DescribeStacksCommand({
@@ -52,9 +54,10 @@ export default class InitApp extends Command {
       const stacks: Stack[] = data?.Stacks ?? []
 
       stacks.forEach((s: Stack) => {
+        logger(JSON.stringify(s))
         logger(JSON.stringify(s.Outputs))
       })
-      // stack = stacks.pop() ?? ''
+      stack = stacks.pop() ?? ''
       // logger(stacks[0]?.Outputs ?? '':String);
     } catch (error) {
       logger('Error you probably need a bootstrap stack', error)
@@ -65,19 +68,32 @@ export default class InitApp extends Command {
     logger(`* Creating Cyclic App: ${name}`)
     logger('* Provisioning AWS pipeline resources')
 
-    // axios.post('https://api.cyclic.sh/v1/app/', {
-    //   name: name,
-    //   stack: stack,
-    //   roleArn: roleArn,
-    //   roleSecret: roleSecret // pragma: allowlist secret
-    //   })
-    //   .then((response) => {
-    //     logger(response);
-    //   })
-    //   .catch((error) => {
-    //     logger(`API end-point error for init-app [${name}].`);
-    //     // this.log(error);
-    //   }
-    // );
+    if (stack !== '') {
+      const bucketName = stack.Outputs?.find(o => o.OutputKey === 'BucketName')?.OutputValue
+      const roleArn = stack.Outputs?.find(o => o.OutputKey === 'RoleArn')?.OutputValue
+      const stackId = stack.StackId
+      const stackName = stack.StackName
+
+      logger(`  bucketName[${bucketName}]\n  roleArn[${roleArn}]\n  stackId[${stackId}]\n  stackName[${stackName}]`)
+
+      // axios.post('https://api.cyclic.sh/v1/app/', {
+      //   axios.post('https://5lyarx6bgf.execute-api.us-east-2.amazonaws.com/app', {
+      //       name: name,
+      //       stackName: stackName,
+      //       stackId: stackId,
+      //       roleArn: roleArn,
+      //       bucketName: bucketName,
+      //     })
+      //     .then((res) => {
+      //       logger(res.status?.toString())
+      //       logger(res.data)
+      //       logger(res.headers);
+      //     })
+      //     .catch((err) => {
+      //       logger(`API end-point error for init-app [${name}].`);
+      //       logger(err);
+      //     }
+      //   );
+    }
   }
 }

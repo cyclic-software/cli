@@ -73,3 +73,8 @@ EXAMPLE
 
 _See code: [src/commands/init-app.ts](https://github.com/cyclic-software/cli/blob/v0.0.3/src/commands/init-app.ts)_
 <!-- commandsstop -->
+
+# Development Notes
+
+## Run Locally
+`./bin/run init-app`
