@@ -42,9 +42,6 @@ export default class Bootstrap extends Command {
       credentials: fromIni({profile: profile}),
     })
 
-    // let stack:Stack|string
-
-    // const stack: Stack | '' = ''
     let exists = true
 
     logger('* Checking AWS account for bootstrapping')
@@ -64,6 +61,8 @@ export default class Bootstrap extends Command {
     // fs.readFileSync(path.join(__dirname, '../templates') + '/my-template.html', 'utf8');
     const templateBody = fs.readFileSync(path.join(__dirname, '/bootstrap-template.yaml'), 'utf-8')
 
+    const packageVersion = require('../../package.json').version
+
     const changeSet = await cfn.send(new CreateChangeSetCommand({
       ChangeSetName: `ChangeSetAsOf-${nowInMs}`,
       StackName: Bootstrap.stackName,
@@ -71,21 +70,22 @@ export default class Bootstrap extends Command {
       ChangeSetType: (exists) ? 'UPDATE' : 'CREATE',
       Description: `Cyclic Apps Bootstrap stack with latest and greatest as of: ${nowInMs}`,
       NotificationARNs: [Bootstrap.notificationArn],
-      Parameters: [],
+      Parameters: [
+        {ParameterKey: 'BootstrapVersion', ParameterValue: `v${packageVersion}`},
+      ],
       Tags: [
-        {Key: 'cyclic.source', Value: 'cli:v0.0.3'}, // TODO: how do we inject version?
-        {Key: 'cyclic.commit', Value: '55eee80'},
+        {Key: 'cyclic.source', Value: `cli:v${packageVersion}`},
       ],
       TemplateBody: templateBody,
     }))
 
-    logger(changeSet.toString())
+    logger(JSON.stringify(changeSet))
 
     setTimeout(async () => {
       const execChangeSetResult = await cfn.send(new ExecuteChangeSetCommand({
         ChangeSetName: changeSet.Id,
       }))
-      logger(execChangeSetResult.toString())
+      logger(JSON.stringify(execChangeSetResult))
     }, 3000) // TODO probably wanna check that the change set is ready
   }
 }

@@ -1,11 +1,9 @@
 Description: This stack includes resources needed to deploy Cyclic Software Apps into this AWS environment
 Parameters:
   BootstrapVersion:
-    Description: A version number for this template.
-    Default: '1'
+    Description: The version number of the cli that created this template.
+    Default: 'v0.0.1'
     Type: String
-    AllowedValues: ['1']
-    ConstraintDescription: BootstrapVersion is defined as a parameter only for convienience. It must be set as is.
 
 Resources:
   ManagementRole:
