@@ -101,3 +101,9 @@ _See code: [src/commands/init-app.ts](https://github.com/cyclic-software/cli/blo
 
 ## Run Locally
 `./bin/run init-app`
+
+## Publish
+
+There is a github action that takes care of that. Just bump version.
+
+`npm version [major | minor | patch]`

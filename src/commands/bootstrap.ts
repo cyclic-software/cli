@@ -58,7 +58,6 @@ export default class Bootstrap extends Command {
     }
 
     const nowInMs = Date.now()
-    // fs.readFileSync(path.join(__dirname, '../templates') + '/my-template.html', 'utf8');
     const templateBody = fs.readFileSync(path.join(__dirname, '/bootstrap-template.yaml'), 'utf-8')
 
     const packageVersion = require('../../package.json').version
