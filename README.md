@@ -13,6 +13,7 @@ Cyclic cli: your plumbing for the cloud
 <!-- toc -->
 * [Usage](#usage)
 * [Commands](#commands)
+* [Development Notes](#development-notes)
 <!-- tocstop -->
 # Usage
 <!-- usage -->
@@ -21,7 +22,7 @@ $ npm install -g cyclic-cli
 $ cyclic COMMAND
 running command...
 $ cyclic (-v|--version|version)
-cyclic-cli/0.0.3 darwin-x64 node-v15.5.1
+cyclic-cli/0.0.4 darwin-x64 node-v15.5.1
 $ cyclic --help [COMMAND]
 USAGE
   $ cyclic COMMAND
@@ -30,8 +31,30 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
+* [`cyclic bootstrap`](#cyclic-bootstrap)
 * [`cyclic help [COMMAND]`](#cyclic-help-command)
 * [`cyclic init-app`](#cyclic-init-app)
+
+## `cyclic bootstrap`
+
+Will create CyclicAppManagementStack stack in your AWS account.
+
+```
+USAGE
+  $ cyclic bootstrap
+
+OPTIONS
+  -h, --help             show CLI help
+  -p, --profile=profile  aws credential profile (defaults to default)
+
+EXAMPLE
+  $ cyclic bootstrap --profile $PROFILE
+  * Checking AWS account for bootstrapping
+  * Creating CfN stack: CyclicAppManagementStack
+  * Provisioning ...
+```
+
+_See code: [src/commands/bootstrap.ts](https://github.com/cyclic-software/cli/blob/v0.0.4/src/commands/bootstrap.ts)_
 
 ## `cyclic help [COMMAND]`
 
@@ -71,7 +94,7 @@ EXAMPLE
   * Provisioning AWS pipeline resources
 ```
 
-_See code: [src/commands/init-app.ts](https://github.com/cyclic-software/cli/blob/v0.0.3/src/commands/init-app.ts)_
+_See code: [src/commands/init-app.ts](https://github.com/cyclic-software/cli/blob/v0.0.4/src/commands/init-app.ts)_
 <!-- commandsstop -->
 
 # Development Notes
