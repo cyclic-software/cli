@@ -8,10 +8,10 @@ describe('init-app', () => {
     expect(ctx.stdout).to.contain('* Checking AWS account for bootstrapping')
   })
 
-  test
-  .stdout()
-  .command(['init-app', '--name', 'jeff'])
-  .it('runs init-app --name jeff', ctx => {
-    expect(ctx.stdout).to.contain('jeff')
-  })
+  // test
+  // .stdout()
+  // .command(['init-app', '--name', 'jeff'])
+  // .it('runs init-app --name jeff', ctx => {
+  //   expect(ctx.stdout).to.contain('jeff')
+  // })
 })
