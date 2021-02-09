@@ -22,7 +22,7 @@ $ npm install -g cyclic-cli
 $ cyclic COMMAND
 running command...
 $ cyclic (-v|--version|version)
-cyclic-cli/0.0.4 darwin-x64 node-v15.5.1
+cyclic-cli/0.0.5 darwin-x64 node-v15.5.1
 $ cyclic --help [COMMAND]
 USAGE
   $ cyclic COMMAND
@@ -34,6 +34,7 @@ USAGE
 * [`cyclic bootstrap`](#cyclic-bootstrap)
 * [`cyclic help [COMMAND]`](#cyclic-help-command)
 * [`cyclic init-app`](#cyclic-init-app)
+* [`cyclic login`](#cyclic-login)
 
 ## `cyclic bootstrap`
 
@@ -54,7 +55,7 @@ EXAMPLE
   * Provisioning ...
 ```
 
-_See code: [src/commands/bootstrap.ts](https://github.com/cyclic-software/cli/blob/v0.0.4/src/commands/bootstrap.ts)_
+_See code: [src/commands/bootstrap.ts](https://github.com/cyclic-software/cli/blob/v0.0.5/src/commands/bootstrap.ts)_
 
 ## `cyclic help [COMMAND]`
 
@@ -71,7 +72,7 @@ OPTIONS
   --all  see all commands in CLI
 ```
 
-_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.1/src/commands/help.ts)_
+_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.2/src/commands/help.ts)_
 
 ## `cyclic init-app`
 
@@ -94,7 +95,25 @@ EXAMPLE
   * Provisioning AWS pipeline resources
 ```
 
-_See code: [src/commands/init-app.ts](https://github.com/cyclic-software/cli/blob/v0.0.4/src/commands/init-app.ts)_
+_See code: [src/commands/init-app.ts](https://github.com/cyclic-software/cli/blob/v0.0.5/src/commands/init-app.ts)_
+
+## `cyclic login`
+
+Will log you into the Cyclic CLI and allow you to make authenticated api calls.
+
+```
+USAGE
+  $ cyclic login
+
+OPTIONS
+  -h, --help     show CLI help
+  -v, --verbose
+
+EXAMPLE
+  $ cyclic login
+```
+
+_See code: [src/commands/login.ts](https://github.com/cyclic-software/cli/blob/v0.0.5/src/commands/login.ts)_
 <!-- commandsstop -->
 
 # Development Notes
