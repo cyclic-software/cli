@@ -18,6 +18,7 @@ export default class Bootstrap extends Command {
 
   static flags = {
     help: flags.help({char: 'h'}),
+    verbose: flags.boolean({char: 'v'}),
   }
 
   static args = []
@@ -38,12 +39,12 @@ export default class Bootstrap extends Command {
       })
       // console.log('client registered')
 
-      console.log('dataDir:  ' + this.config.dataDir)
-      console.log('cacheDir: ' + this.config.cacheDir)
+      // console.log('dataDir:  ' + this.config.dataDir)
+      // console.log('cacheDir: ' + this.config.cacheDir)
 
       const handle = await client.deviceAuthorization()
 
-      console.log(`You are being redirected to your browser to authenticate.\n User Code: ${handle.user_code}`)
+      console.log(`You are being redirected to your browser to authenticate.\n\n User Code: ${handle.user_code}\n`)
       // console.log('Verification URI: ', handle.verification_uri);
       // console.log('Verification URI (complete): ', handle.verification_uri_complete);
 
@@ -53,18 +54,23 @@ export default class Bootstrap extends Command {
       const tokenSet = await handle.poll()
 
       try {
-        fs.mkdirSync(this.config.dataDir)
+        fs.mkdirSync(this.config.dataDir, {recursive: true, mode: 0o0600})
       } catch (error) {
-        console.log(error)
+        if (error.code === 'EEXIST') {
+          console.log('expected exists error')
+        } else {
+          console.log(error)
+        }
       }
 
-      fs.writeFileSync(path.join(this.config.dataDir, 'config.json'), JSON.stringify(tokenSet))
+      fs.writeFileSync(path.join(this.config.dataDir, 'config.json'), JSON.stringify(tokenSet), {mode: 0o0600})
 
       // console.log('got', tokenSet);
       // console.log('id token claims', tokenSet.claims());
 
-      const userinfo = await client.userinfo(tokenSet)
-      console.log('userinfo', userinfo)
+      // const userinfo = await client.userinfo(tokenSet)
+      // console.log('userinfo', userinfo)
+      console.log('You have been authenticated. You may now use authenticated portions of the cli.')
     } catch (error) {
       console.log(error)
     }
