@@ -83,15 +83,17 @@ USAGE
   $ cyclic init-app
 
 OPTIONS
+  -a, --api=api          url to base of cyclic api for requests (default https://api.cyclic.sh/v1)
+  -d, --debug            print debugging output
   -h, --help             show CLI help
-  -n, --name=name        application name (defaults to random string)
+  -n, --name=name        application name (defaults to random words)
   -p, --profile=profile  aws credential profile (defaults to default)
 
 EXAMPLE
-  $ cyclic init-app --name $NAME --profile $PROFILE
+  $ cyclic init-app --name $APP_NAME --profile $PROFILE
   * Checking AWS account for bootstrapping
   * Checking AWS account for required roles
-  * Creating Cyclic App: $NAME
+  * Creating Cyclic App: $APP_NAME
   * Provisioning AWS pipeline resources
 ```
 
