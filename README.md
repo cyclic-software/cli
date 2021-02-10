@@ -5,7 +5,6 @@ Cyclic cli: your plumbing for the cloud
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 [![Version](https://img.shields.io/npm/v/cyclic-cli.svg)](https://npmjs.org/package/cyclic-cli)
-[![Codecov](https://codecov.io/gh/cyclic-software/cli/branch/master/graph/badge.svg)](https://codecov.io/gh/cyclic-software/cli)
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
 [![Downloads/week](https://img.shields.io/npm/dw/cyclic-cli.svg)](https://npmjs.org/package/cyclic-cli)
 [![License](https://img.shields.io/npm/l/cyclic-cli.svg)](https://github.com/cyclic-software/cli/blob/master/package.json)
