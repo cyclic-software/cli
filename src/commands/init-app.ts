@@ -127,19 +127,28 @@ export default class InitApp extends Command {
 
     logger(res?.roleArn, res?.bucketName, app_name)
 
-    axios.post(`${api_url}/app/`, {
+    const creds = JSON.parse(fs.readFileSync(path.join(this.config.dataDir, 'config.json'), 'utf-8'))
+    logger(JSON.stringify(creds))
+
+    const url = `${api_url}/app`
+    const body = {
       appName: app_name,
       stackName: res?.stackName,
       roleArn: res?.roleArn,
       bucketName: res?.bucketName,
-    })
+    }
+    const opts = {
+      headers: {Authorization: `Bearer ${creds?.id_token}`},
+    }
+
+    axios.post(url, body, opts)
     .then((res: any) => {
       logger(res.status?.toString())
       logger(res.data)
       logger(res.headers)
     })
     .catch((error: Error) => {
-      logger(`API end-point error for init-app [${app_name}].`)
+      logger(`API end-point error for init-app: url: [${url}] => headers: [${JSON.stringify(opts.headers)}]\nbody:[${JSON.stringify(body)}].`)
       logger(error.message, error.stack)
     })
   }
