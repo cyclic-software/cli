@@ -34,6 +34,7 @@ USAGE
 * [`cyclic help [COMMAND]`](#cyclic-help-command)
 * [`cyclic init-app`](#cyclic-init-app)
 * [`cyclic login`](#cyclic-login)
+* [`cyclic token [FILE]`](#cyclic-token-file)
 
 ## `cyclic bootstrap`
 
@@ -115,6 +116,22 @@ EXAMPLE
 ```
 
 _See code: [src/commands/login.ts](https://github.com/cyclic-software/cli/blob/v0.0.7/src/commands/login.ts)_
+
+## `cyclic token [FILE]`
+
+describe the command here
+
+```
+USAGE
+  $ cyclic token [FILE]
+
+OPTIONS
+  -f, --force
+  -h, --help       show CLI help
+  -n, --name=name  name to print
+```
+
+_See code: [src/commands/token.ts](https://github.com/cyclic-software/cli/blob/v0.0.7/src/commands/token.ts)_
 <!-- commandsstop -->
 
 # Development Notes

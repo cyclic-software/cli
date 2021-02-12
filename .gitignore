@@ -6,3 +6,5 @@
 /tmp
 node_modules
 coverage
+
+token-test-file.json
