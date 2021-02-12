@@ -21,7 +21,7 @@ $ npm install -g cyclic-cli
 $ cyclic COMMAND
 running command...
 $ cyclic (-v|--version|version)
-cyclic-cli/0.0.7 darwin-x64 node-v15.5.1
+cyclic-cli/0.0.8 darwin-x64 node-v15.5.1
 $ cyclic --help [COMMAND]
 USAGE
   $ cyclic COMMAND
@@ -34,7 +34,7 @@ USAGE
 * [`cyclic help [COMMAND]`](#cyclic-help-command)
 * [`cyclic init-app`](#cyclic-init-app)
 * [`cyclic login`](#cyclic-login)
-* [`cyclic token [FILE]`](#cyclic-token-file)
+* [`cyclic token`](#cyclic-token)
 
 ## `cyclic bootstrap`
 
@@ -55,7 +55,7 @@ EXAMPLE
   * Provisioning ...
 ```
 
-_See code: [src/commands/bootstrap.ts](https://github.com/cyclic-software/cli/blob/v0.0.7/src/commands/bootstrap.ts)_
+_See code: [src/commands/bootstrap.ts](https://github.com/cyclic-software/cli/blob/v0.0.8/src/commands/bootstrap.ts)_
 
 ## `cyclic help [COMMAND]`
 
@@ -97,7 +97,7 @@ EXAMPLE
   * Provisioning AWS pipeline resources
 ```
 
-_See code: [src/commands/init-app.ts](https://github.com/cyclic-software/cli/blob/v0.0.7/src/commands/init-app.ts)_
+_See code: [src/commands/init-app.ts](https://github.com/cyclic-software/cli/blob/v0.0.8/src/commands/init-app.ts)_
 
 ## `cyclic login`
 
@@ -115,23 +115,22 @@ EXAMPLE
   $ cyclic login
 ```
 
-_See code: [src/commands/login.ts](https://github.com/cyclic-software/cli/blob/v0.0.7/src/commands/login.ts)_
+_See code: [src/commands/login.ts](https://github.com/cyclic-software/cli/blob/v0.0.8/src/commands/login.ts)_
 
-## `cyclic token [FILE]`
+## `cyclic token`
 
 describe the command here
 
 ```
 USAGE
-  $ cyclic token [FILE]
+  $ cyclic token
 
 OPTIONS
-  -f, --force
+  -f, --file=file  file name and path of auth file
   -h, --help       show CLI help
-  -n, --name=name  name to print
 ```
 
-_See code: [src/commands/token.ts](https://github.com/cyclic-software/cli/blob/v0.0.7/src/commands/token.ts)_
+_See code: [src/commands/token.ts](https://github.com/cyclic-software/cli/blob/v0.0.8/src/commands/token.ts)_
 <!-- commandsstop -->
 
 # Development Notes
