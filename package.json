@@ -65,7 +65,7 @@
     "eslint": "eslint . --ext .ts --config .eslintrc --fix",
     "postpack": "rm -f oclif.manifest.json",
     "posttest": "eslint . --ext .ts --config .eslintrc --fix",
-    "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
+    "prepack": "rm -rf lib && tsc -b && cp src/commands/bootstrap-template.yaml lib/commands/ && oclif-dev manifest && oclif-dev readme",
     "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\"",
     "version": "oclif-dev readme && git add README.md",
     "codecov": "nyc report --reporter=json > coverage/coverage.json"
