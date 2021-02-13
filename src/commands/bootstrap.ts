@@ -53,7 +53,7 @@ export default class Bootstrap extends Command {
     } catch (error) {
       // const { requestId, cfId, extendedRequestId } = error.$metadata;
       // console.log({ requestId, cfId, extendedRequestId });
-      logger(error)
+      // logger(error) <- This is expected if the stack doesn't exist
       exists = false
     }
 

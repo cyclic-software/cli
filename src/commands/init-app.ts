@@ -116,7 +116,7 @@ export default class InitApp extends Command {
 
     const app_name = flags.name ?? uniqueNamesGenerator(genConfig)
     const profile = flags.profile ?? 'default'
-    const api_url = flags.api ?? 'https://api.cyclic.sh/v1'
+    const api_url = flags.api ?? 'https://qv7sncm2v7.execute-api.us-east-2.amazonaws.com' // 'https://api.cyclic.sh/v1'
     this.trace = flags.debug ?? false
     // const roleArn = ''
     // const roleSecret = ''
