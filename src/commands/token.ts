@@ -13,7 +13,7 @@ export default class Token extends Command {
   async run() {
     const {flags} = this.parse(Token)
 
-    const fileName = flags.file ?? path.join(this.config.dataDir, 'config.json')
+    const fileName = flags.file ?? path.join(this.config.configDir, 'config.json')
 
     try {
       const auth = JSON.parse(fs.readFileSync(fileName, 'utf-8'))

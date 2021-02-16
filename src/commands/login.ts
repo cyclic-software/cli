@@ -39,7 +39,7 @@ export default class Bootstrap extends Command {
       })
       // console.log('client registered')
 
-      // console.log('dataDir:  ' + this.config.dataDir)
+      console.log('configDir:  ' + this.config.configDir)
       // console.log('cacheDir: ' + this.config.cacheDir)
 
       const handle = await client.deviceAuthorization()
@@ -54,16 +54,18 @@ export default class Bootstrap extends Command {
       const tokenSet = await handle.poll()
 
       try {
-        fs.mkdirSync(this.config.dataDir, {recursive: true, mode: 0o0600})
+        fs.mkdirSync(this.config.configDir, {recursive: true})
       } catch (error) {
         if (error.code === 'EEXIST') {
           console.log('expected exists error')
         } else {
+          console.log('unable to access configDir')
           console.log(error)
+          console.log(this.config)
         }
       }
 
-      fs.writeFileSync(path.join(this.config.dataDir, 'config.json'), JSON.stringify(tokenSet), {mode: 0o0600})
+      fs.writeFileSync(path.join(this.config.configDir, 'config.json'), JSON.stringify(tokenSet), {mode: 0o0600})
 
       // console.log('got', tokenSet);
       // console.log('id token claims', tokenSet.claims());

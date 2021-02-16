@@ -42,10 +42,10 @@ export default class InitApp extends Command {
 
   authenticated(exit_on_not = true) {
     try {
-      const auth = JSON.parse(fs.readFileSync(path.join(this.config.dataDir, 'config.json'), 'utf-8'))
+      const auth = JSON.parse(fs.readFileSync(path.join(this.config.configDir, 'config.json'), 'utf-8'))
       return auth
     } catch (error) {
-      this.log(`Unable to find proof of authentication in ${this.config.dataDir}.\n\nTry logging in:\n  % cyclic login`)
+      this.log(`Unable to find proof of authentication in ${this.config.configDir}.\n\nTry logging in:\n  % cyclic login`)
       if (exit_on_not) {
         this.exit(1)
       }
@@ -127,7 +127,7 @@ export default class InitApp extends Command {
 
     logger(res?.roleArn, res?.bucketName, app_name)
 
-    const creds = JSON.parse(fs.readFileSync(path.join(this.config.dataDir, 'config.json'), 'utf-8'))
+    const creds = JSON.parse(fs.readFileSync(path.join(this.config.configDir, 'config.json'), 'utf-8'))
     logger(JSON.stringify(creds))
 
     const url = `${api_url}/app`
