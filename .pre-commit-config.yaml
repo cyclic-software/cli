@@ -17,7 +17,7 @@ repos:
   rev: master
   hooks:
 #  - id: markdownlint # Configure in .mdlrc - Check markdown files and flag style issues
-  - id: shellcheck   # Shell scripts conform to shellcheck
+#   - id: shellcheck   # Shell scripts conform to shellcheck
   - id: shfmt        # Check shell style with shfmt
 - repo: https://github.com/gruntwork-io/pre-commit
   rev: v0.1.12 # Get the latest from: https://github.com/gruntwork-io/pre-commit/releases
@@ -41,5 +41,5 @@ repos:
   - id: nyc-test
     name: nyc unit tests
     entry: npm test
-    language: python # running as script makes pre-commit think file is local
+    language: script # running as script makes pre-commit think file is local
     types_or: [javascript, jsx, ts, tsx]
