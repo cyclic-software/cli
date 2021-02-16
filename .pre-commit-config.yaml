@@ -19,6 +19,10 @@ repos:
 #  - id: markdownlint # Configure in .mdlrc - Check markdown files and flag style issues
   - id: shellcheck   # Shell scripts conform to shellcheck
   - id: shfmt        # Check shell style with shfmt
+- repo: https://github.com/gruntwork-io/pre-commit
+  rev: v0.1.12 # Get the latest from: https://github.com/gruntwork-io/pre-commit/releases
+  hooks:
+    - id: shellcheck
 - repo: https://github.com/pre-commit/mirrors-eslint
   rev: master
   hooks:
@@ -36,6 +40,6 @@ repos:
   hooks:
   - id: nyc-test
     name: nyc unit tests
-    entry: yarn test
+    entry: npm test
     language: python # running as script makes pre-commit think file is local
     types_or: [javascript, jsx, ts, tsx]
