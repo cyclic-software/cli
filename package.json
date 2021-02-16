@@ -1,7 +1,7 @@
 {
   "name": "cyclic-cli",
   "description": "Cyclic cli: your plumbing for the cloud",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "author": "Kam Lasater @seekayel",
   "bin": {
     "cyclic": "bin/run"
