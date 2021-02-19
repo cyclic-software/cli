@@ -14,19 +14,23 @@ repos:
   - id: mixed-line-ending
   - id: trailing-whitespace
 - repo: https://github.com/jumanjihouse/pre-commit-hooks
-  rev: master
+  rev: 2.1.4
   hooks:
 #  - id: markdownlint # Configure in .mdlrc - Check markdown files and flag style issues
-  - id: shellcheck   # Shell scripts conform to shellcheck
+#   - id: shellcheck   # Shell scripts conform to shellcheck
   - id: shfmt        # Check shell style with shfmt
+- repo: https://github.com/gruntwork-io/pre-commit
+  rev: v0.1.12 # Get the latest from: https://github.com/gruntwork-io/pre-commit/releases
+  hooks:
+    - id: shellcheck
 - repo: https://github.com/pre-commit/mirrors-eslint
-  rev: master
+  rev: v7.20.0
   hooks:
   - id: eslint
     files: \.[jt]sx?$  # *.js, *.jsx, *.ts and *.tsx
     types: [file]
     args: [--fix]
-- repo: git@github.com:yelp/detect-secrets
+- repo: https://github.com/yelp/detect-secrets
   rev: v0.14.3
   hooks:
     - id: detect-secrets
@@ -35,7 +39,7 @@ repos:
 - repo: local
   hooks:
   - id: nyc-test
-    name: nyc unit tests
-    entry: yarn test
-    language: python # running as script makes pre-commit think file is local
+    name: unit tests
+    entry: npm test
+    language: system # running as script makes pre-commit think file is local
     types_or: [javascript, jsx, ts, tsx]
