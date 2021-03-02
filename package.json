@@ -16,7 +16,7 @@
     "@oclif/config": "^1",
     "@oclif/plugin-help": "^3",
     "axios": "^0.21.1",
-    "open": "^7.0.0",
+    "open": "^8.0.0",
     "openid-client": "^4.4.0",
     "tslib": "^2.0.0",
     "unique-names-generator": "^4.3.1"
